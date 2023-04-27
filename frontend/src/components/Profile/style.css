@@ -1,0 +1,33 @@
+ 
+
+.friend-list-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.friend-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.friend-img-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.friend-img {
+  width: 4rem;
+  height: 4rem;
+}
+
+.remove-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 6rem;
+  height: 2.2rem;
+}

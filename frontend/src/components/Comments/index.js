@@ -48,12 +48,10 @@ const Comments = ({ id, firstname, lastname, socket }) => {
   const [nemcomment, setNewComment] = useState({});
 
 
-  const { userinfo, token, userId, posts } = useSelector((state) => {
+  const { userinfo, token} = useSelector((state) => {
     return {
       userinfo: state.auth.userinfo,
       token: state.auth.token,
-      userId: state.auth.userId,
-      posts: state.posts.posts,
     };
   });
 

@@ -18,16 +18,16 @@ import {
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { MDBFile } from "mdb-react-ui-kit";
-import { updateComment, removeComment } from "../redux/reducers/posts";
+import { updateComment } from "../redux/reducers/posts";
 
 const UpdateComment = ({ showModal, comment, setShowModal }) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [showVideo, setShowVideo] = useState(false);
-  const handleCloseVideo = () => setShowVideo(false);
-  const handleShowVideo = () => setShowVideo(true);
-  const [selectedvideo, setSelectedVideo] = useState("");
+  // const handleCloseVideo = () => setShowVideo(false);
+  // const handleShowVideo = () => setShowVideo(true);
+  // const [selectedvideo, setSelectedVideo] = useState("");
   const [Updatedpost, setUpdatedpost] = useState({});
   const [image, setImage] = useState("");
   const [video, setVedio] = useState("");

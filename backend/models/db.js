@@ -2,18 +2,19 @@ const { Pool, Client } = require("pg");
 //require mongoose
 const mongoose = require("mongoose");
 
+const pool = new Pool({
+  // connectionString: process.env.CONNECTION_STRING,
+  connectionString:
+    "postgres://dtglbjje:CyP6j0FhL7ZADZKBQZyWVa-S7ZmCYqsI@kandula.db.elephantsql.com/dtglbjje",
+});
 
-  const pool = new Pool({
-    connectionString: process.env.CONNECTION_STRING,
-  });
-
-  pool.connect((err, pool) => {
-    if (err) {
-     console.log("ERROR", err.message);
-     return;
-   }
-   console.log("connected to", pool.user);
-  });
+pool.connect((err, pool) => {
+  if (err) {
+    console.log("ERROR", err.message);
+    return;
+  }
+  console.log("connected to", pool.user);
+});
 
 //  const pool = new Client({
 //   user: "postgres",
@@ -29,15 +30,17 @@ const mongoose = require("mongoose");
 //     return;
 //   }
 //   console.log("connected to", pool.user);
-// }); 
-
+// });
 
 //strictQuery
 mongoose.set("strictQuery", false);
 
 //connect the db to the server
 mongoose
-  .connect(process.env.DB_URI)
+  // .connect(process.env.DB_URI)
+  .connect(
+    "mongodb+srv://Reem_socail:8w01QHogXQgoMXAE@atlascluster.mgktonq.mongodb.net/test"
+  )
   .then(() => {
     console.log("mongoose DB is connected");
   })

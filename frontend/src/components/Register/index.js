@@ -50,7 +50,7 @@ const Register = () => {
           setMessage("If you agree with the terms, check the Agree check box");
         } else {
           axios
-            .post("https://project5-trial2.onrender.com/users/register", {
+            .post("https://project5-trial33.onrender.com/users/register", {
               firstName,
               lastName,
               email,
@@ -85,7 +85,7 @@ const Register = () => {
   const loginGoogle = (result) => {
     const { credential, clientId } = result;
     axios
-      .post("https://project5-trial2.onrender.com/users/google", {
+      .post("https://project5-trial33.onrender.com/users/google", {
         credential,
         clientId,
       })
@@ -94,7 +94,7 @@ const Register = () => {
         const fakePass = family_name + 123456;
 
         axios
-          .post("https://project5-trial2.onrender.com/users/register", {
+          .post("https://project5-trial33.onrender.com/users/register", {
             firstName: given_name,
             lastName: family_name,
             email,
@@ -112,7 +112,7 @@ const Register = () => {
           .catch((err) => {
             if (err.response.data.message === "The email already exists") {
               axios
-                .post("https://project5-trial2.onrender.com/users/login", {
+                .post("https://project5-trial33.onrender.com/users/login", {
                   email,
                   password: fakePass,
                 })
@@ -136,7 +136,7 @@ const Register = () => {
   };
   const getAllUserInfo = () => {
     axios
-      .get(`https://project5-trial2.onrender.com/users/info`, {
+      .get(`https://project5-trial33.onrender.com/users/info`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((Response) => {

@@ -38,7 +38,7 @@ const Conversation = ({ Oneconversation, theOpenedConversation }) => {
     theFriendId &&
       axios
         .get(
-          `https://project5-trial2.onrender.com/users/others/info/${theFriendId}`,
+          `https://project5-trial33.onrender.com/users/others/info/${theFriendId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -58,7 +58,7 @@ const Conversation = ({ Oneconversation, theOpenedConversation }) => {
     theFriendId &&
       axios
         .get(
-          `https://project5-trial2.onrender.com/conversation/new/messages/${Oneconversation._id}/${theFriendId}`,
+          `https://project5-trial33.onrender.com/conversation/new/messages/${Oneconversation._id}/${theFriendId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }

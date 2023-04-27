@@ -24,7 +24,7 @@ const Likes = ({ post_id, post }) => {
 
   const getLikes = () => {
     axios
-      .get(`https://project5-trial2.onrender.com/likes/l`)
+      .get(`https://project5-trial33.onrender.com/likes/l`)
       .then((result) => {
         const user = result.data.users;
         const LikesNo2 = result.data.num;
@@ -48,7 +48,7 @@ const Likes = ({ post_id, post }) => {
     if (clicked === "yes") {
       setClicked("no");
       axios
-        .delete(`https://project5-trial2.onrender.com/likes/${id}`, {
+        .delete(`https://project5-trial33.onrender.com/likes/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((result) => {
@@ -62,7 +62,7 @@ const Likes = ({ post_id, post }) => {
       setClicked("yes");
       axios
         .post(
-          "https://project5-trial2.onrender.com/likes",
+          "https://project5-trial33.onrender.com/likes",
           {
             post_id: id,
           },

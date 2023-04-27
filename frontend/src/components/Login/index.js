@@ -43,7 +43,7 @@ const Login = () => {
 
   const login = () => {
     axios
-      .post("https://project5-trial2.onrender.com/users/login", {
+      .post("https://project5-trial33.onrender.com/users/login", {
         email,
         password,
       })
@@ -77,7 +77,7 @@ const Login = () => {
   const loginGoogle = (result) => {
     const { credential, clientId } = result;
     axios
-      .post("https://project5-trial2.onrender.com/users/google", {
+      .post("https://project5-trial33.onrender.com/users/google", {
         credential,
         clientId,
       })
@@ -86,7 +86,7 @@ const Login = () => {
         const fakePass = family_name + 123456;
 
         axios
-          .post("https://project5-trial2.onrender.com/users/login", {
+          .post("https://project5-trial33.onrender.com/users/login", {
             email,
             password: fakePass,
           })
@@ -107,7 +107,7 @@ const Login = () => {
   };
   const getAllUserInfo = () => {
     axios
-      .get(`https://project5-trial2.onrender.com/users/info`, {
+      .get(`https://project5-trial33.onrender.com/users/info`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((Response) => {

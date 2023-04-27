@@ -32,7 +32,7 @@ const Posts = ({ post, firstname, lastname }) => {
   const deletePost = async (id) => {
     try {
       await axios
-        .delete(`https://project5-trial2.onrender.com/posts/${id}`, {
+        .delete(`https://project5-trial33.onrender.com/posts/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((result) => {

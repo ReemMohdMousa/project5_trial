@@ -46,7 +46,7 @@ const NavBar = () => {
   //! to be used in advance
   useEffect(() => {
     axios
-      .get(`https://project5-trial2.onrender.com/users/info`, {
+      .get(`https://project5-trial33.onrender.com/users/info`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(function (response) {

@@ -94,7 +94,7 @@ const UpdatePost = ({ showModal, post, setShowModal }) => {
 
     axios
       .put(
-        `https://project5-trial2.onrender.com/posts/${post.post_id}`,
+        `https://project5-trial33.onrender.com/posts/${post.post_id}`,
         { ...Updatedpost },
         { headers: { Authorization: token } }
       )

@@ -32,7 +32,7 @@ const AllFriends = ({ id }) => {
   //get all friends of any person depending on the user id
   const getAllFriends = () => {
     axios
-      .get(`https://project5-trial2.onrender.com/friends/get/all/${id}`, {
+      .get(`https://project5-trial33.onrender.com/friends/get/all/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(function (response) {
@@ -55,7 +55,7 @@ const AllFriends = ({ id }) => {
   const UnFriend = (user2_id) => {
     axios
       .delete(
-        `https://project5-trial2.onrender.com/friends/remove/${user2_id}`,
+        `https://project5-trial33.onrender.com/friends/remove/${user2_id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

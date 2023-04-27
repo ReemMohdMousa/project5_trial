@@ -90,7 +90,7 @@ const AddPost = () => {
   const AddingPost = async () => {
     axios
       .post(
-        "https://project5-trial2.onrender.com/posts",
+        "https://project5-trial33.onrender.com/posts",
         { ...post },
         { headers: { Authorization: token } }
       )

@@ -23,7 +23,7 @@ const SendMessage = ({ id }) => {
   //get all user's conversations
   const getAllUserConversations = () => {
     axios
-      .get(`https://project5-trial2.onrender.com/conversation/`, {
+      .get(`https://project5-trial33.onrender.com/conversation/`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(function (response) {
@@ -59,7 +59,7 @@ const SendMessage = ({ id }) => {
       console.log("enteeer");
       axios
         .post(
-          `https://project5-trial2.onrender.com/conversation/`,
+          `https://project5-trial33.onrender.com/conversation/`,
           { sender_id: userId, receiver_id: id },
           {
             headers: { Authorization: `Bearer ${token}` },

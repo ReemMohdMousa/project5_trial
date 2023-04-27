@@ -75,7 +75,7 @@ const Messenger = () => {
   //get all user's conversations
   const getAllUserConversations = () => {
     axios
-      .get(`https://project5-trial2.onrender.com/conversation/`, {
+      .get(`https://project5-trial33.onrender.com/conversation/`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(function (response) {
@@ -96,7 +96,7 @@ const Messenger = () => {
     theOpenedConversation &&
       axios
         .get(
-          `https://project5-trial2.onrender.com/messages/${theOpenedConversation._id}/${receiver_id}`,
+          `https://project5-trial33.onrender.com/messages/${theOpenedConversation._id}/${receiver_id}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -114,7 +114,7 @@ const Messenger = () => {
   // const getFriendInfo = () => {
   //   if (message.sender != userId) {
   //     axios
-  //       .get(`https://project5-trial2.onrender.com/users/others/info/${message.sender}`, {
+  //       .get(`https://project5-trial33.onrender.com/users/others/info/${message.sender}`, {
   //         headers: { Authorization: `Bearer ${token}` },
   //       })
   //       .then(function (response) {
@@ -133,7 +133,7 @@ const Messenger = () => {
     // setCurrentUserId(userId);
     axios
       .post(
-        `https://project5-trial2.onrender.com/messages`,
+        `https://project5-trial33.onrender.com/messages`,
         {
           text: newWrittenMessage,
           sender: userId,

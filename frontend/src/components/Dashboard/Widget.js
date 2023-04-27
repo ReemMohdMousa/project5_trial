@@ -17,7 +17,7 @@ const Widget = ({ type }) => {
   switch (type) {
     case "user":
       axios
-        .get(`https://project5-trial2.onrender.com/count/user`)
+        .get(`https://project5-trial33.onrender.com/count/user`)
         .then((result) => {
           setUserNo(result.data[0].count);
         })
@@ -41,7 +41,7 @@ const Widget = ({ type }) => {
       break;
     case "posts":
       axios
-        .get(`https://project5-trial2.onrender.com/count/post`)
+        .get(`https://project5-trial33.onrender.com/count/post`)
         .then((result) => {
           setPostNo(result.data[0].count);
         })
@@ -64,7 +64,7 @@ const Widget = ({ type }) => {
       break;
     case "likes":
       axios
-        .get(`https://project5-trial2.onrender.com/count/like`)
+        .get(`https://project5-trial33.onrender.com/count/like`)
         .then((result) => {
           setLikeNo(result.data[0].count);
         })
@@ -88,7 +88,7 @@ const Widget = ({ type }) => {
       break;
     case "newUser":
       axios
-        .get(`https://project5-trial2.onrender.com/count/newuser/details`)
+        .get(`https://project5-trial33.onrender.com/count/newuser/details`)
         .then((result) => {
           setNewUserNo(result.data.count);
         })

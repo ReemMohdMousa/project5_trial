@@ -50,7 +50,7 @@ export default function BasicMenu() {
   //get all friends of the logged in user
   const getAllFriends = () => {
     axios
-      .get(`https://project5-trial2.onrender.com/friends/get/all/${userId}`, {
+      .get(`https://project5-trial33.onrender.com/friends/get/all/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(function (response) {
@@ -65,7 +65,7 @@ export default function BasicMenu() {
     //*ME => receiver_id
 
     axios
-      .get(`https://project5-trial2.onrender.com/friends/received/requests`, {
+      .get(`https://project5-trial33.onrender.com/friends/received/requests`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(function (response) {
@@ -81,7 +81,7 @@ export default function BasicMenu() {
     //*ME => sender_id
 
     axios
-      .get(`https://project5-trial2.onrender.com/friends/sent/requests`, {
+      .get(`https://project5-trial33.onrender.com/friends/sent/requests`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(function (response) {
@@ -97,7 +97,7 @@ export default function BasicMenu() {
   const acceptFriendReq = (sender_id) => {
     axios
       .post(
-        `https://project5-trial2.onrender.com/friends/accept`,
+        `https://project5-trial33.onrender.com/friends/accept`,
         { user2_id: sender_id },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -123,7 +123,7 @@ export default function BasicMenu() {
   const cancelFriendReqFun = (receiver_id) => {
     axios
       .delete(
-        `https://project5-trial2.onrender.com/friends/cancel/${receiver_id}`,
+        `https://project5-trial33.onrender.com/friends/cancel/${receiver_id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -147,7 +147,7 @@ export default function BasicMenu() {
   const declineFriendReqFun = (sender_id) => {
     axios
       .delete(
-        `https://project5-trial2.onrender.com/friends/decline/${sender_id}`,
+        `https://project5-trial33.onrender.com/friends/decline/${sender_id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

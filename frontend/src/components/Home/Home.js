@@ -41,7 +41,7 @@ const Home = () => {
   // get all the user's and his friends posts orderd DESC
   const getAllHomePosts = () => {
     axios
-      .get(`https://project5-trial2.onrender.com/home/`, {
+      .get(`https://project5-trial33.onrender.com/home/`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {

@@ -69,7 +69,7 @@ const UpdateComment = ({ showModal, comment, setShowModal }) => {
   const editPost = async () => {
     axios
       .put(
-        `https://project5-trial2.onrender.com/comments/comment/${comment.comment_id}`,
+        `https://project5-trial33.onrender.com/comments/comment/${comment.comment_id}`,
         { ...Updatedpost },
         { headers: { Authorization: token } }
       )

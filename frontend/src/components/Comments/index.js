@@ -78,7 +78,7 @@ const Comments = ({ id, firstname, lastname, socket }) => {
   const getAllNestedCommentsBycommentId = (post_id, comment_id) => {
     axios
       .get(
-        `https://project5-trial2.onrender.com/comments/getnested?comment_id=${comment_id}&post_id=${post_id}`
+        `https://project5-trial33.onrender.com/comments/getnested?comment_id=${comment_id}&post_id=${post_id}`
       )
 
       .then((Response) => {
@@ -98,7 +98,7 @@ const Comments = ({ id, firstname, lastname, socket }) => {
   const createNestedComment = (post_id, comment_id) => {
     axios
       .post(
-        `https://project5-trial2.onrender.com/comments/nested?comment_id=${comment_id}&post_id=${post_id}`,
+        `https://project5-trial33.onrender.com/comments/nested?comment_id=${comment_id}&post_id=${post_id}`,
         { ...newnrested },
         { headers: { Authorization: token } }
       )
@@ -114,7 +114,7 @@ const Comments = ({ id, firstname, lastname, socket }) => {
   };
   const getAllCommentsByPostId = (id) => {
     axios
-      .get(`https://project5-trial2.onrender.com/comments/${id}`, {
+      .get(`https://project5-trial33.onrender.com/comments/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((Response) => {
@@ -133,7 +133,7 @@ const Comments = ({ id, firstname, lastname, socket }) => {
   const addNewComment = () => {
     axios
       .post(
-        `https://project5-trial2.onrender.com/comments/${id}`,
+        `https://project5-trial33.onrender.com/comments/${id}`,
         {
           ...nemcomment,
         },
@@ -166,7 +166,7 @@ const Comments = ({ id, firstname, lastname, socket }) => {
     try {
       await axios
         .delete(
-          `https://project5-trial2.onrender.com/comments/comment/${comment_id}`,
+          `https://project5-trial33.onrender.com/comments/comment/${comment_id}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }

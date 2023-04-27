@@ -16,7 +16,7 @@ const Chart = ({ aspect, title }) => {
   const get = async () => {
     try {
       const result = await axios.get(
-        `https://project5-trial2.onrender.com/count/num`
+        `https://project5-trial33.onrender.com/count/num`
       );
       if (result.data) {
         setdata(result.data);

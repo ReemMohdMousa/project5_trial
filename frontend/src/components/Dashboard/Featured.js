@@ -11,7 +11,7 @@ const Featured = () => {
   const [avg, setAvg] = useState(0);
   useEffect(() => {
     axios
-      .get(`https://project5-trial2.onrender.com/count/newpost`)
+      .get(`https://project5-trial33.onrender.com/count/newpost`)
       .then((result) => {
         const value1 = result.data.reduce((acc, elem) => {
           return Number(elem.count) - acc;

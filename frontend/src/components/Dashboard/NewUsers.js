@@ -17,7 +17,7 @@ const NewUsers = () => {
   const [rows, setRows] = useState();
   useEffect(() => {
     axios
-      .get(`https://project5-trial2.onrender.com/count/newuser/details`)
+      .get(`https://project5-trial33.onrender.com/count/newuser/details`)
       .then((result) => {
         setRows(result.data.detail);
       })

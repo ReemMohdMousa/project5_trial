@@ -68,7 +68,7 @@ const OnlineFriends = ({ onlineUsers }) => {
   //   console.log(theFriendId);
   //   theFriendId &&
   //     axios
-  //       .get(`https://project5-trial2.onrender.com/users/others/info/${theFriendId.userId}`, {
+  //       .get(`https://project5-trial33.onrender.com/users/others/info/${theFriendId.userId}`, {
   //         headers: { Authorization: `Bearer ${token}` },
   //       })
   //       .then(function (response) {

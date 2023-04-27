@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 
@@ -9,16 +9,16 @@ import {
   setIsFriend,
 } from "../redux/reducers/friends/index";
 
-import {
-  MDBCol,
-  MDBContainer,
-  MDBRow,
-  MDBCard,
-  MDBCardText,
-  MDBCardBody,
-  MDBCardImage,
-  MDBTypography,
-} from "mdb-react-ui-kit";
+// import {
+//   MDBCol,
+//   MDBContainer,
+//   MDBRow,
+//   MDBCard,
+//   MDBCardText,
+//   MDBCardBody,
+//   MDBCardImage,
+//   MDBTypography,
+// } from "mdb-react-ui-kit";
 
 import {
   MDBDropdown,
@@ -37,32 +37,25 @@ const FriendRequests = ({ id }) => {
   const dispatch = useDispatch();
 
   //redux states
-  const {
-    token,
-    userId,
-    isLoggedIn,
-    friends,
-    isFriend,
-    isAdded,
-    isReceived,
-    
-  } = useSelector((state) => {
-    //return object contains the redux states
-    return {
-      userId: state.auth.userId,
-      token: state.auth.token,
-      isLoggedIn: state.auth.isLoggedIn,
-      friends: state.friends.friends,
-      isFriend: state.friends.isFriend,
-      isAdded: state.friends.isAdded,
-      isReceived: state.friends.isReceived,
-    };
-  });
+  const { token, userId, isFriend, isAdded, isReceived } = useSelector(
+    (state) => {
+      //return object contains the redux states
+      return {
+        userId: state.auth.userId,
+        token: state.auth.token,
+        // isLoggedIn: state.auth.isLoggedIn,
+        // friends: state.friends.friends,
+        isFriend: state.friends.isFriend,
+        isAdded: state.friends.isAdded,
+        isReceived: state.friends.isReceived,
+      };
+    }
+  );
 
   // change the isReqAdded state
   const checkIfReqWasSent = () => {
     axios
-      .get(`http://localhost:5000/friends/sent/requests`, {
+      .get(`https://project5-trial2.onrender.com/friends/sent/requests`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(function (response) {
@@ -84,7 +77,7 @@ const FriendRequests = ({ id }) => {
 
   const checkIfReqWasReceived = () => {
     axios
-      .get(`http://localhost:5000/friends/received/requests`, {
+      .get(`https://project5-trial2.onrender.com/friends/received/requests`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(function (response) {
@@ -111,7 +104,7 @@ const FriendRequests = ({ id }) => {
   const addFriendFun = (id) => {
     axios
       .post(
-        `http://localhost:5000/friends/add`,
+        `https://project5-trial2.onrender.com/friends/add`,
         { user2_id: id },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -136,11 +129,10 @@ const FriendRequests = ({ id }) => {
       });
   };
 
- 
   const acceptFriendReq = () => {
     axios
       .post(
-        `http://localhost:5000/friends/accept`,
+        `https://project5-trial2.onrender.com/friends/accept`,
         { user2_id: id },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -160,7 +152,7 @@ const FriendRequests = ({ id }) => {
 
         //get the friend info to push it to friends state, so i could rerender the friends array
         // axios
-        //   .get(`http://localhost:5000/users/others/info/${friendId}`)
+        //   .get(`https://project5-trial2.onrender.com/users/others/info/${friendId}`)
         //   .then((response) => {
         //     console.log(response.data.result);
         //     //add the new friend to the friends array state
@@ -178,7 +170,7 @@ const FriendRequests = ({ id }) => {
   //cancel friend request
   const cancelFriendReqFun = () => {
     axios
-      .delete(`http://localhost:5000/friends/cancel/${id}`, {
+      .delete(`https://project5-trial2.onrender.com/friends/cancel/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(function (response) {
@@ -198,7 +190,7 @@ const FriendRequests = ({ id }) => {
   // when the receiver delete or decline the request
   const declineFriendReqFun = () => {
     axios
-      .delete(`http://localhost:5000/friends/decline/${id}`, {
+      .delete(`https://project5-trial2.onrender.com/friends/decline/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(function (response) {

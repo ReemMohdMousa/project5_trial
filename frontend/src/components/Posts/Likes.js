@@ -8,8 +8,8 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 const Likes = ({ post_id, post }) => {
   const [clicked, setClicked] = useState("no");
-  const [likesNo, setLikesNo] = useState();
-  const [likedUser, setLikedUser] = useState();
+  // const [likesNo, setLikesNo] = useState();
+  // const [likedUser, setLikedUser] = useState();
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const Likes = ({ post_id, post }) => {
 
   const getLikes = () => {
     axios
-      .get(`http://localhost:5000/likes/l`)
+      .get(`https://project5-trial2.onrender.com/likes/l`)
       .then((result) => {
         const user = result.data.users;
         const LikesNo2 = result.data.num;
@@ -48,7 +48,7 @@ const Likes = ({ post_id, post }) => {
     if (clicked === "yes") {
       setClicked("no");
       axios
-        .delete(`http://localhost:5000/likes/${id}`, {
+        .delete(`https://project5-trial2.onrender.com/likes/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((result) => {
@@ -62,7 +62,7 @@ const Likes = ({ post_id, post }) => {
       setClicked("yes");
       axios
         .post(
-          "http://localhost:5000/likes",
+          "https://project5-trial2.onrender.com/likes",
           {
             post_id: id,
           },

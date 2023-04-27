@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./conversation.css";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams, Outlet } from "react-router-dom";
+// import { useNavigate, useParams, Outlet } from "react-router-dom";
 
 import {
   setConversationFriendInfo,
@@ -10,22 +10,18 @@ import {
 } from "../../redux/reducers/Messenger/index";
 
 const Conversation = ({ Oneconversation, theOpenedConversation }) => {
-
-
   const [theFriendId, setTheFriendId] = useState("");
   const [friendInfo, setFriendInfo] = useState({});
   const [isNew, setIsNew] = useState(false);
 
-  const { userinfo, token, userId, newMsg, conversationFriendInfo } =
-    useSelector((state) => {
-      return {
-        userinfo: state.auth.userinfo,
-        token: state.auth.token,
-        userId: state.auth.userId,
-        conversationFriendInfo: state.messenger.conversationFriendInfo,
-        newMsg: state.messenger.newMsg,
-      };
-    });
+  const { token, userId } = useSelector((state) => {
+    return {
+      token: state.auth.token,
+      userId: state.auth.userId,
+      // conversationFriendInfo: state.messenger.conversationFriendInfo,
+      // newMsg: state.messenger.newMsg,
+    };
+  });
 
   const dispatch = useDispatch();
 
@@ -41,9 +37,12 @@ const Conversation = ({ Oneconversation, theOpenedConversation }) => {
   const getFriendInfo = () => {
     theFriendId &&
       axios
-        .get(`http://localhost:5000/users/others/info/${theFriendId}`, {
-          headers: { Authorization: `Bearer ${token}` },
-        })
+        .get(
+          `https://project5-trial2.onrender.com/users/others/info/${theFriendId}`,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        )
         .then(function (response) {
           // console.log("***********************************", response.data);
           dispatch(setConversationFriendInfo(response.data.result));
@@ -59,7 +58,7 @@ const Conversation = ({ Oneconversation, theOpenedConversation }) => {
     theFriendId &&
       axios
         .get(
-          `http://localhost:5000/conversation/new/messages/${Oneconversation._id}/${theFriendId}`,
+          `https://project5-trial2.onrender.com/conversation/new/messages/${Oneconversation._id}/${theFriendId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }

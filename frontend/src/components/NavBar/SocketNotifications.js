@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 // import { io } from "socket.io-client";
 // import { useSocket } from "../../App";
 
 const SocketNotifications = ({socket}) => {
   ///const socket = useSocket(io);
-  console.log("hi")
-  const { token, userId, isLoggedIn } = useSelector((state) => {
-    //return object contains the redux states
-    return {
-      token: state.auth.token,
-      isLoggedIn: state.auth.isLoggedIn,
-      userId: state.auth.userId,
-    };
-  });
+  // console.log("hi")
+  // const { token, userId, isLoggedIn } = useSelector((state) => {
+  //   //return object contains the redux states
+  //   return {
+  //     token: state.auth.token,
+  //     isLoggedIn: state.auth.isLoggedIn,
+  //     userId: state.auth.userId,
+  //   };
+  // });
   const [notification, setNotification] = useState(null);
   useEffect(() => {
     console.log(socket.id)

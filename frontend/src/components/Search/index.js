@@ -11,7 +11,7 @@ const Search = () => {
   const { user } = useParams();
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/search?firstName=${user}`)
+      .get(`https://project5-trial2.onrender.com/search?firstName=${user}`)
       .then((result) => {
         setSearchResult(result.data.result);
       })

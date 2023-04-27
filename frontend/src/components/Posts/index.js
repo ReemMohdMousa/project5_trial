@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 import Comments from "../Comments";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { setUserInfo } from "../redux/reducers/auth/index";
+// import { setUserInfo } from "../redux/reducers/auth/index";
 import Dropdown from "react-bootstrap/Dropdown";
 // import {format} from "timeago.js";
-import Iframe from "react-iframe";
+// import Iframe from "react-iframe";
 import UpdatePost from "../AddPost/UpdatePost";
 import { removePost } from "../redux/reducers/posts/index";
 import Likes from "./Likes";
-import { setComments, addComment } from "../redux/reducers/posts/index";
+// import { setComments, addComment } from "../redux/reducers/posts/index";
 import { io } from "socket.io-client";
 import { useSocket } from "../../App";
 const Posts = ({ post, firstname, lastname }) => {
@@ -21,9 +21,8 @@ const Posts = ({ post, firstname, lastname }) => {
   const [openComments, setopenComments] = useState(false);
   const dispatch = useDispatch();
 
-  const { userinfo, token, userId, posts } = useSelector((state) => {
+  const { userinfo, token, userId } = useSelector((state) => {
     return {
-      posts: state.posts.posts,
       userinfo: state.auth.userinfo,
       token: state.auth.token,
       userId: state.auth.userId,
@@ -33,7 +32,7 @@ const Posts = ({ post, firstname, lastname }) => {
   const deletePost = async (id) => {
     try {
       await axios
-        .delete(`http://localhost:5000/posts/${id}`, {
+        .delete(`https://project5-trial2.onrender.com/posts/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((result) => {

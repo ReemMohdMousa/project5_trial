@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const pool = new Pool({
   // connectionString: process.env.CONNECTION_STRING,
   connectionString:
-    "postgres://dtglbjje:CyP6j0FhL7ZADZKBQZyWVa-S7ZmCYqsI@kandula.db.elephantsql.com/dtglbjje",
+    "postgres://ikifhsre:laPfE-OFSo6juQ7hiIxL5o0cZW3nHCL_@trumpet.db.elephantsql.com/ikifhsre",
 });
 
 pool.connect((err, pool) => {

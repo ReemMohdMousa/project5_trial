@@ -4,10 +4,8 @@ import Conversation from "./Conversation/Conversation";
 import Message from "./Message/Message";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { setFriendInfo } from "../redux/reducers/Messenger/index";
 import { io } from "socket.io-client";
-import { useNavigate, useParams, Outlet } from "react-router-dom";
-import CurrentConversation from "./CurrentConversation";
+import { useNavigate } from "react-router-dom";
 import {
   setTheOpenedConversation,
   setConversations,
@@ -19,7 +17,7 @@ const ENDPOINT = "http://localhost:5000";
 // const socket = io.connect(ENDPOINT);
 
 const Messenger = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   //componant states
   // const [conversations, setConversations] = useState([]);
@@ -29,30 +27,23 @@ const Messenger = () => {
   const [socket, setSocket] = useState(io(ENDPOINT, { autoConnect: false }));
   const [sending, setSending] = useState(false);
   const [receiving, setReceiving] = useState(false);
-  const scrollRef = useRef();
+  // const scrollRef = useRef();
   const [onlineUsers, setOnlineUsers] = useState([]);
 
   const dispatch = useDispatch();
 
-  const {
-    userinfo,
-    token,
-    userId,
-    conversationFriendInfo,
-    openConversation,
-    theOpenedConversation,
-    conversations,
-  } = useSelector((state) => {
-    return {
-      userinfo: state.auth.userinfo,
-      token: state.auth.token,
-      userId: state.auth.userId,
-      conversationFriendInfo: state.messenger.conversationFriendInfo,
-      openConversation: state.messenger.openConversation,
-      theOpenedConversation: state.messenger.theOpenedConversation,
-      conversations: state.messenger.conversations,
-    };
-  });
+  const { token, userId, theOpenedConversation, conversations } = useSelector(
+    (state) => {
+      return {
+        token: state.auth.token,
+        userId: state.auth.userId,
+        // conversationFriendInfo: state.messenger.conversationFriendInfo,
+        // openConversation: state.messenger.openConversation,
+        theOpenedConversation: state.messenger.theOpenedConversation,
+        conversations: state.messenger.conversations,
+      };
+    }
+  );
 
   //connect to the backend server
   useEffect(() => {
@@ -84,7 +75,7 @@ const Messenger = () => {
   //get all user's conversations
   const getAllUserConversations = () => {
     axios
-      .get(`http://localhost:5000/conversation/`, {
+      .get(`https://project5-trial2.onrender.com/conversation/`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(function (response) {
@@ -105,7 +96,7 @@ const Messenger = () => {
     theOpenedConversation &&
       axios
         .get(
-          `http://localhost:5000/messages/${theOpenedConversation._id}/${receiver_id}`,
+          `https://project5-trial2.onrender.com/messages/${theOpenedConversation._id}/${receiver_id}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -123,7 +114,7 @@ const Messenger = () => {
   // const getFriendInfo = () => {
   //   if (message.sender != userId) {
   //     axios
-  //       .get(`http://localhost:5000/users/others/info/${message.sender}`, {
+  //       .get(`https://project5-trial2.onrender.com/users/others/info/${message.sender}`, {
   //         headers: { Authorization: `Bearer ${token}` },
   //       })
   //       .then(function (response) {
@@ -142,7 +133,7 @@ const Messenger = () => {
     // setCurrentUserId(userId);
     axios
       .post(
-        `http://localhost:5000/messages`,
+        `https://project5-trial2.onrender.com/messages`,
         {
           text: newWrittenMessage,
           sender: userId,
@@ -175,7 +166,7 @@ const Messenger = () => {
   useEffect(() => {
     getAllUserConversations();
     getAllConversationMessages();
-  }, [theOpenedConversation]);
+  }, [theOpenedConversation, sending, receiving]);
 
   useEffect(() => {
     socket?.on("GET_USERS", (users) => {

@@ -30,7 +30,7 @@ const Profile = () => {
   const dispatch = useDispatch();
   const getuserdata = () => {
     axios
-      .get(`http://localhost:5000/users/others/info/${id}`)
+      .get(`https://project5-trial2.onrender.com/users/others/info/${id}`)
       .then((Response) => {
         // console.log(Response.data.result);
 
@@ -63,7 +63,7 @@ const Profile = () => {
 
   const getAllPostsByUserId = () => {
     axios
-      .get(`http://localhost:5000/posts/search_1/${id}`, {
+      .get(`https://project5-trial2.onrender.com/posts/search_1/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((Response) => {

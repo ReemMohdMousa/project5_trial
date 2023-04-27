@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./message.css";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { useNavigate, useParams, Outlet } from "react-router-dom";
+// import { useNavigate, useParams, Outlet } from "react-router-dom";
 
 const Messages = ({ mine, message }) => {
 
@@ -12,11 +12,9 @@ const Messages = ({ mine, message }) => {
   //dispatch
   const dispatch = useDispatch();
 
-  const { userinfo, token, userId } = useSelector((state) => {
+  const { userinfo} = useSelector((state) => {
     return {
       userinfo: state.auth.userinfo,
-      token: state.auth.token,
-      userId: state.auth.userId,
     };
   });
 

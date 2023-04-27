@@ -17,12 +17,12 @@ const Widget = ({ type }) => {
   switch (type) {
     case "user":
       axios
-        .get(`http://localhost:5000/count/user`)
+        .get(`https://project5-trial2.onrender.com/count/user`)
         .then((result) => {
           setUserNo(result.data[0].count);
         })
         .catch((error) => {
-        //   console.log(error);
+          //   console.log(error);
         });
 
       data = {
@@ -41,12 +41,12 @@ const Widget = ({ type }) => {
       break;
     case "posts":
       axios
-        .get(`http://localhost:5000/count/post`)
+        .get(`https://project5-trial2.onrender.com/count/post`)
         .then((result) => {
           setPostNo(result.data[0].count);
         })
         .catch((error) => {
-        //   console.log(error);
+          //   console.log(error);
         });
       data = {
         title: "Posts",
@@ -64,12 +64,12 @@ const Widget = ({ type }) => {
       break;
     case "likes":
       axios
-        .get(`http://localhost:5000/count/like`)
+        .get(`https://project5-trial2.onrender.com/count/like`)
         .then((result) => {
           setLikeNo(result.data[0].count);
         })
         .catch((error) => {
-        //   console.log(error);
+          //   console.log(error);
         });
       data = {
         title: "Likes",
@@ -88,12 +88,12 @@ const Widget = ({ type }) => {
       break;
     case "newUser":
       axios
-        .get(`http://localhost:5000/count/newuser/details`)
+        .get(`https://project5-trial2.onrender.com/count/newuser/details`)
         .then((result) => {
           setNewUserNo(result.data.count);
         })
         .catch((error) => {
-        //   console.log(error);
+          //   console.log(error);
         });
       data = {
         title: "New registered users",

@@ -1,5 +1,5 @@
 import * as React from "react";
-import react, { useEffect, useState } from "react";
+import { useState } from "react";
 import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
 import Menu from "@mui/material/Menu";
@@ -7,9 +7,9 @@ import MenuItem from "@mui/material/MenuItem";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 
-import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { setNotifications } from "../redux/reducers/posts";
+// import axios from "axios";
+// import { useDispatch, useSelector } from "react-redux";
+// import { setNotifications } from "../redux/reducers/posts";
 export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -19,25 +19,25 @@ export default function AccountMenu() {
   };
 
   //useDispatch
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   //redux login states
-  const { token, userId, isLoggedIn, Socket } = useSelector((state) => {
-    //return object contains the redux states
-    return {
-      token: state.auth.token,
-      isLoggedIn: state.auth.isLoggedIn,
-      userId: state.auth.userId,
-      Socket: state.posts.Socket,
-    };
-  });
+  // const { token, userId, isLoggedIn, Socket } = useSelector((state) => {
+  //   //return object contains the redux states
+  //   return {
+  //     token: state.auth.token,
+  //     isLoggedIn: state.auth.isLoggedIn,
+  //     userId: state.auth.userId,
+  //     Socket: state.posts.Socket,
+  //   };
+  // });
   const handleClose = () => {
     setAnchorEl(null);
   };
 
   // useEffect(() => {
   //   axios
-  //     .get(`http://localhost:5000/home/notification`, {
+  //     .get(`https://project5-trial2.onrender.com/home/notification`, {
   //       headers: { Authorization: `Bearer ${token}` },
   //     })
   //     .then((response) => {

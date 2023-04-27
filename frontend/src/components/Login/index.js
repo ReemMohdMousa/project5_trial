@@ -26,17 +26,13 @@ import {
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { isLoggedIn, token, userinfo, userId, roleId } = useSelector(
-    (state) => {
-      return {
-        isLoggedIn: state.auth.isLoggedIn,
-        userinfo: state.auth.userinfo,
-        token: state.auth.token,
-        userId: state.auth.userId,
-        roleId: state.auth.roleId,
-      };
-    }
-  );
+  const { isLoggedIn, token, roleId } = useSelector((state) => {
+    return {
+      isLoggedIn: state.auth.isLoggedIn,
+      token: state.auth.token,
+      roleId: state.auth.roleId,
+    };
+  });
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -47,12 +43,11 @@ const Login = () => {
 
   const login = () => {
     axios
-      .post("http://localhost:5000/users/login", {
+      .post("https://project5-trial2.onrender.com/users/login", {
         email,
         password,
       })
       .then((result) => {
-         
         localStorage.setItem("token", result.data.token);
         localStorage.setItem("userId", result.data.userId);
         localStorage.setItem("isLoggedIn", true);
@@ -82,7 +77,7 @@ const Login = () => {
   const loginGoogle = (result) => {
     const { credential, clientId } = result;
     axios
-      .post("http://localhost:5000/users/google", {
+      .post("https://project5-trial2.onrender.com/users/google", {
         credential,
         clientId,
       })
@@ -91,7 +86,7 @@ const Login = () => {
         const fakePass = family_name + 123456;
 
         axios
-          .post("http://localhost:5000/users/login", {
+          .post("https://project5-trial2.onrender.com/users/login", {
             email,
             password: fakePass,
           })
@@ -112,7 +107,7 @@ const Login = () => {
   };
   const getAllUserInfo = () => {
     axios
-      .get(`http://localhost:5000/users/info`, {
+      .get(`https://project5-trial2.onrender.com/users/info`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((Response) => {

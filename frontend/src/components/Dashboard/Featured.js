@@ -5,13 +5,13 @@ import "./style.css";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
- 
+
 const Featured = () => {
   const [val, setval] = useState(0);
   const [avg, setAvg] = useState(0);
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/count/newpost`)
+      .get(`https://project5-trial2.onrender.com/count/newpost`)
       .then((result) => {
         const value1 = result.data.reduce((acc, elem) => {
           return Number(elem.count) - acc;
@@ -43,7 +43,7 @@ const Featured = () => {
         <h1 className="f-title">Post Precentege</h1>
         <MoreVertIcon fontSize="small" />
       </div>
-      <br/>
+      <br />
 
       <div className="f-bottom">
         <div className="featuredChart">
@@ -53,7 +53,7 @@ const Featured = () => {
             strokeWidth={5}
           />
         </div>
-        
+
         <p className="f-title">Average posts per day</p>
         <p className="f-amount">{avg}</p>
       </div>

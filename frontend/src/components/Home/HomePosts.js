@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Comments from "../Comments";
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 import Dropdown from "react-bootstrap/Dropdown";
 // import { format } from "timeago.js";
 import UpdatePost from "../AddPost/UpdatePost";
 import Likes from "../Posts/Likes";
 const HomePosts = ({ post ,socket}) => {
   const [show, setShow] = useState(false);
-  const handleShow = () => setShow(true);
+  // const handleShow = () => setShow(true);
   const [openComments, setopenComments] = useState(false);
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const { userinfo, token, userId } = useSelector((state) => {
-    return {
-      userinfo: state.auth.userinfo,
-      token: state.auth.token,
-      userId: state.auth.userId,
-    };
-  });
+  // const { userinfo, token, userId } = useSelector((state) => {
+  //   return {
+  //     userinfo: state.auth.userinfo,
+  //     token: state.auth.token,
+  //     userId: state.auth.userId,
+  //   };
+  // });
 
   return (
     post && (

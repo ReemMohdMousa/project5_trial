@@ -9,7 +9,6 @@ import {
   MDBNavbarItem,
   MDBNavbarLink,
   MDBBtn,
- 
   MDBCollapse,
 } from "mdb-react-ui-kit";
 import { useNavigate } from "react-router-dom";
@@ -17,14 +16,14 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { setLogout } from "../redux/reducers/auth";
 import NavFriendReq from "./NavFriendReq";
-import SocketNotifications from "./SocketNotifications"
-import Notifications from "./Notifications"
+import SocketNotifications from "./SocketNotifications";
+import Notifications from "./Notifications";
 import { io } from "socket.io-client";
 import { useSocket } from "../../App";
 const NavBar = () => {
   const [showBasic, setShowBasic] = useState(false);
   const [searchValue, setSearchValue] = useState("");
-  const socket=useSocket(io)
+  const socket = useSocket(io);
   //useNavigate
   const navigate = useNavigate();
 
@@ -46,9 +45,8 @@ const NavBar = () => {
   //get user info, so i could use user info, such as name and pic
   //! to be used in advance
   useEffect(() => {
-  
     axios
-      .get(`http://localhost:5000/users/info`, {
+      .get(`https://project5-trial2.onrender.com/users/info`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(function (response) {
@@ -83,7 +81,6 @@ const NavBar = () => {
   const searchNow = () => {
     navigate(`/home/${searchValue}`);
     setShowBasic(false);
-
   };
 
   const goToMessenger = () => {
@@ -109,7 +106,7 @@ const NavBar = () => {
             >
               <MDBIcon icon="bars" fas />
             </MDBNavbarToggler>
-           
+
             <MDBCollapse navbar show={showBasic}>
               <MDBNavbarNav className="mr-auto mb-2 mb-lg-0">
                 <MDBNavbarItem
@@ -141,14 +138,13 @@ const NavBar = () => {
 
                 <MDBNavbarItem>
                   <MDBNavbarLink href="#">
-                    <NavFriendReq/>
+                    <NavFriendReq />
                   </MDBNavbarLink>
                 </MDBNavbarItem>
 
-
                 <MDBNavbarItem>
                   <MDBNavbarLink>
-                    <Notifications/>
+                    <Notifications />
                   </MDBNavbarLink>
                 </MDBNavbarItem>
                 <MDBNavbarItem
@@ -214,7 +210,7 @@ const NavBar = () => {
                   <MDBNavbarLink active>Register</MDBNavbarLink>
                 </MDBNavbarItem>
                 <MDBNavbarItem>
-                   <SocketNotifications socket={socket}/>
+                  <SocketNotifications socket={socket} />
                 </MDBNavbarItem>
               </MDBNavbarNav>
             </MDBCollapse>

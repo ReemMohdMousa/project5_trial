@@ -30,23 +30,18 @@ const Home = () => {
   const dispatch = useDispatch();
   const socket = useSocket(io);
   //redux states
-  const { posts, userinfo, token, userId, friends, homePosts } = useSelector(
-    (state) => {
-      return {
-        posts: state.posts.posts,
-        userinfo: state.auth.userinfo,
-        token: state.auth.token,
-        userId: state.auth.userId,
-        friends: state.friends.friends,
-        homePosts: state.posts.homePosts,
-      };
-    }
-  );
+  const { token, userId, homePosts } = useSelector((state) => {
+    return {
+      token: state.auth.token,
+      userId: state.auth.userId,
+      homePosts: state.posts.homePosts,
+    };
+  });
 
   // get all the user's and his friends posts orderd DESC
   const getAllHomePosts = () => {
     axios
-      .get(`http://localhost:5000/home/`, {
+      .get(`https://project5-trial2.onrender.com/home/`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {

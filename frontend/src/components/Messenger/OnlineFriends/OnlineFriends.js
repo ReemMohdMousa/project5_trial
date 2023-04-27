@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
+// import axios from "axios";
+import { useSelector } from "react-redux";
 import "./OnlineFriends.css";
 
 const OnlineFriends = ({ onlineUsers }) => {
   const [onlineFriends, setOnlineFriends] = useState([]);
-  const [theFriendId, setTheFriendId] = useState(null);
-  const [friendsInfo, setFriendsInfo] = useState([]);
+  // const [theFriendId, setTheFriendId] = useState(null);
+  // const [friendsInfo, setFriendsInfo] = useState([]);
   const [onliners, setOnliners] = useState([]);
 
-  const { token, userId, conversationFriendInfo, friends, conversations } =
-    useSelector((state) => {
-      return {
-        token: state.auth.token,
-        userId: state.auth.userId,
-        conversationFriendInfo: state.messenger.conversationFriendInfo,
-        friends: state.friends.friends,
-        conversations: state.messenger.conversations,
-      };
-    });
+  const { friends } = useSelector((state) => {
+    return {
+      // token: state.auth.token,
+      // userId: state.auth.userId,
+      // conversationFriendInfo: state.messenger.conversationFriendInfo,
+      friends: state.friends.friends,
+      // conversations: state.messenger.conversations,
+    };
+  });
 
   const getOnlineUsersIds = () => {
     setOnliners([]);
@@ -49,10 +48,10 @@ const OnlineFriends = ({ onlineUsers }) => {
     checkIfAFriendIsOnline();
   }, [onliners, onlineUsers]);
 
-  console.log("onlineUsers", onlineUsers);
-  console.log("onliners", onliners);
-  console.log("friends", friends);
-  console.log("onlineFriends", onlineFriends);
+  // console.log("onlineUsers", onlineUsers);
+  // console.log("onliners", onliners);
+  // console.log("friends", friends);
+  // console.log("onlineFriends", onlineFriends);
 
   // const onlineFriendss = () => {
   //   friends.filter((f) => onlineUsers.some((u) => u.userId === f.userId));
@@ -69,7 +68,7 @@ const OnlineFriends = ({ onlineUsers }) => {
   //   console.log(theFriendId);
   //   theFriendId &&
   //     axios
-  //       .get(`http://localhost:5000/users/others/info/${theFriendId.userId}`, {
+  //       .get(`https://project5-trial2.onrender.com/users/others/info/${theFriendId.userId}`, {
   //         headers: { Authorization: `Bearer ${token}` },
   //       })
   //       .then(function (response) {

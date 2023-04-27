@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setLogin, setUserId, setRoleId } from "../redux/reducers/auth";
 import { GoogleLogin } from "@react-oauth/google";
-import {  setUserInfo } from "../redux/reducers/auth";
+import { setUserInfo } from "../redux/reducers/auth";
 
 import {
   MDBBtn,
@@ -50,7 +50,7 @@ const Register = () => {
           setMessage("If you agree with the terms, check the Agree check box");
         } else {
           axios
-            .post("http://localhost:5000/users/register", {
+            .post("https://project5-trial2.onrender.com/users/register", {
               firstName,
               lastName,
               email,
@@ -66,7 +66,6 @@ const Register = () => {
 
               dispatch(setLogin(result.data.token));
               dispatch(setUserId(result.data.userId));
-
             })
             .catch((error) => {
               setShow(true);
@@ -86,7 +85,7 @@ const Register = () => {
   const loginGoogle = (result) => {
     const { credential, clientId } = result;
     axios
-      .post("http://localhost:5000/users/google", {
+      .post("https://project5-trial2.onrender.com/users/google", {
         credential,
         clientId,
       })
@@ -95,7 +94,7 @@ const Register = () => {
         const fakePass = family_name + 123456;
 
         axios
-          .post("http://localhost:5000/users/register", {
+          .post("https://project5-trial2.onrender.com/users/register", {
             firstName: given_name,
             lastName: family_name,
             email,
@@ -113,7 +112,7 @@ const Register = () => {
           .catch((err) => {
             if (err.response.data.message === "The email already exists") {
               axios
-                .post("http://localhost:5000/users/login", {
+                .post("https://project5-trial2.onrender.com/users/login", {
                   email,
                   password: fakePass,
                 })
@@ -137,7 +136,7 @@ const Register = () => {
   };
   const getAllUserInfo = () => {
     axios
-      .get(`http://localhost:5000/users/info`, {
+      .get(`https://project5-trial2.onrender.com/users/info`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((Response) => {
@@ -150,7 +149,7 @@ const Register = () => {
   useEffect(() => {
     if (isLoggedIn) {
       navigate("/home");
-      getAllUserInfo()
+      getAllUserInfo();
     }
   });
 

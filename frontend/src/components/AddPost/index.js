@@ -90,7 +90,7 @@ const AddPost = () => {
   const AddingPost = async () => {
     axios
       .post(
-        "http://localhost:5000/posts",
+        "https://project5-trial2.onrender.com/posts",
         { ...post },
         { headers: { Authorization: token } }
       )
@@ -127,9 +127,7 @@ const AddPost = () => {
                   </span>
                 </Link>
 
-                <span className="date">
-                  {/* {format(Date())} */}
-                  </span>
+                <span className="date">{/* {format(Date())} */}</span>
               </div>
             </div>
           </div>
@@ -161,16 +159,17 @@ const AddPost = () => {
                         )}
 
                         {post.image && (
-                          <img variant="success" src={post.image} 
-                          alt="img"/>
+                          <img variant="success" src={post.image} alt="img" />
                         )}
                         {disabled && (
                           <div>
                             <p variant="warning">
                               Please wait until file uploaded
                             </p>
-                            <img src="https://media.tenor.com/67b631tr-g0AAAAC/loading-now-loading.gif" alt="img"/>
-                            
+                            <img
+                              src="https://media.tenor.com/67b631tr-g0AAAAC/loading-now-loading.gif"
+                              alt="img"
+                            />
                           </div>
                         )}
                         <hr className="my-4" />

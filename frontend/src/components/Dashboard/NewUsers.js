@@ -17,7 +17,7 @@ const NewUsers = () => {
   const [rows, setRows] = useState();
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/count/newuser/details`)
+      .get(`https://project5-trial2.onrender.com/count/newuser/details`)
       .then((result) => {
         setRows(result.data.detail);
       })
@@ -27,51 +27,51 @@ const NewUsers = () => {
   }, []);
   return (
     <div className="dashboard">
-    <Sidebar />
-    <TableContainer component={Paper} className="table">
-      <Table style={{ width: "70%" }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell className="tableCell">Row Number</TableCell>
-            <TableCell className="tableCell">User Name</TableCell>
-            <TableCell className="tableCell">Age</TableCell>
-            <TableCell className="tableCell">Email</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows &&
-            rows.map((row, id) => (
-              <TableRow key={id}>
-                <TableCell className="tableCell">{id+1}</TableCell>
-                <TableCell className="tableCell">
-                  <div
-                    id={row.user_id}
-                    style={{ cursor: "pointer" }}
-                    className="cellWrapper"
-                    onClick={(e) => {
-                      const id = e.target.id;
-                      console.log(">>>>", id);
-                      navigate(`/profile/${id}`);
-                    }}
-                  >
-                    <img
+      <Sidebar />
+      <TableContainer component={Paper} className="table">
+        <Table style={{ width: "70%" }} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell className="tableCell">Row Number</TableCell>
+              <TableCell className="tableCell">User Name</TableCell>
+              <TableCell className="tableCell">Age</TableCell>
+              <TableCell className="tableCell">Email</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows &&
+              rows.map((row, id) => (
+                <TableRow key={id}>
+                  <TableCell className="tableCell">{id + 1}</TableCell>
+                  <TableCell className="tableCell">
+                    <div
                       id={row.user_id}
-                      className="friend-img"
-                      src={
-                        row.avatar ||
-                        "https://png.pngtree.com/png-clipart/20210613/original/pngtree-gray-silhouette-avatar-png-image_6404679.jpg"
-                      }
-                    />
-                    &nbsp; {row.username}
-                  </div>
-                </TableCell>
-                <TableCell className="tableCell">{row.age}</TableCell>
-                <TableCell className="tableCell">{row.email}</TableCell>
-              </TableRow>
-            ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+                      style={{ cursor: "pointer" }}
+                      className="cellWrapper"
+                      onClick={(e) => {
+                        const id = e.target.id;
+                        console.log(">>>>", id);
+                        navigate(`/profile/${id}`);
+                      }}
+                    >
+                      <img
+                        id={row.user_id}
+                        className="friend-img"
+                        src={
+                          row.avatar ||
+                          "https://png.pngtree.com/png-clipart/20210613/original/pngtree-gray-silhouette-avatar-png-image_6404679.jpg"
+                        }
+                      />
+                      &nbsp; {row.username}
+                    </div>
+                  </TableCell>
+                  <TableCell className="tableCell">{row.age}</TableCell>
+                  <TableCell className="tableCell">{row.email}</TableCell>
+                </TableRow>
+              ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </div>
   );
 };

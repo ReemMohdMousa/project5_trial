@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Modal, Button, Form } from "react-bootstrap";
+import React, { useEffect } from "react";
+import { Button } from "react-bootstrap";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -12,20 +12,18 @@ const SendMessage = ({ id }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   //redux states
-  const { posts, userinfo, token, userId, conversations } = useSelector(
-    (state) => {
-      return {
-        token: state.auth.token,
-        userId: state.auth.userId,
-        conversations: state.messenger.conversations,
-      };
-    }
-  );
+  const { token, userId, conversations } = useSelector((state) => {
+    return {
+      token: state.auth.token,
+      userId: state.auth.userId,
+      conversations: state.messenger.conversations,
+    };
+  });
 
   //get all user's conversations
   const getAllUserConversations = () => {
     axios
-      .get(`http://localhost:5000/conversation/`, {
+      .get(`https://project5-trial2.onrender.com/conversation/`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(function (response) {
@@ -61,7 +59,7 @@ const SendMessage = ({ id }) => {
       console.log("enteeer");
       axios
         .post(
-          `http://localhost:5000/conversation/`,
+          `https://project5-trial2.onrender.com/conversation/`,
           { sender_id: userId, receiver_id: id },
           {
             headers: { Authorization: `Bearer ${token}` },
